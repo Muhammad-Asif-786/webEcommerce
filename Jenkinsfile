@@ -75,7 +75,7 @@ pipeline {
         stage('Send Email') {
             steps {
                 emailext (
-                    subject: "🚀 webEcommerce (Grocery Store) Deployed Successfully",
+                    subject: "🚀 web-ecommerce (Grocery Store) Deployed Successfully",
                     body: """
                     Deployment Successful!
 

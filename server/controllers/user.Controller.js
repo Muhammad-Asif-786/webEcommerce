@@ -48,7 +48,7 @@ try {
 
     const verifyEmail = await sendEmail({
       sendTo: email,
-      subject: "Verify email from webEcommerce",
+      subject: "Verify email from web-ecommerce",
       html: verifyEmailTemplate({
         name,
         url: verifyEmailUrl,
@@ -338,7 +338,7 @@ export async function forgotPasswordController(request,response) {
 
         await sendEmail({
             sendTo : email,
-            subject : "Forgot password from webEcommerce",
+            subject : "Forgot password from web-ecommerce",
             html : forgotPasswordTemplate({
                 name : user.name,
                 otp : otp
