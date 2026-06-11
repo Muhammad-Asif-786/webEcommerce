@@ -75,7 +75,7 @@ export default function Register() {
   return (
     <div className="flex justify-center items-center py-8 bg-gray-100">
       <div className="bg-white shadow-lg rounded-2xl px-8 w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center mt-3">Create Account.</h2>
+        <h2 className="text-2xl font-semibold text-center mt-3">Create Account</h2>
 
         <form className="space-y-2" onSubmit={handleSubmit}>
           {/* Name */}

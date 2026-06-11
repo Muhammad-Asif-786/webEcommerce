@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        SERVER_IMAGE = "webEcommerce-server-image"
-        CLIENT_IMAGE = "webEcommerce-client-image"
-        SERVER_CONTAINER = "webEcommerce-server-container"
-        CLIENT_CONTAINER = "webEcommerce-client-container"
+        SERVER_IMAGE = "web-ecommerce-server-image"
+        CLIENT_IMAGE = "web-ecommerce-client-image"
+        SERVER_CONTAINER = "web-ecommerce-server-container"
+        CLIENT_CONTAINER = "web-ecommerce-client-container"
         PORT = "5050"
         EMAIL = "masifmeyo786@gmail.com"
     }
