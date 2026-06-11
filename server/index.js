@@ -14,11 +14,18 @@ import cartRouter from './routes/cart.route.js'
 import addressRouter from './routes/address.route.js'
 import orderRouter from './routes/order.route.js'
 import { webhookStripe } from "./controllers/order.controller.js";
+//1 == path module import for __dirname ==
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 dotenv.config()
 
 const app = express()
+
+//2 == FIX __dirname (ES MODULE) ==
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(cors({
     credentials : true,
@@ -38,7 +45,7 @@ app.use(cookieParser())
 // app.use(morgan())
 app.use(morgan("dev"));
 app.use(helmet({
-    crossOriginResourcePolicy : false
+    crossOriginResourcePolicy: false,
 }))
 
 
@@ -59,6 +66,17 @@ app.use("/api/product", productRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/address", addressRouter)
 app.use("/api/order", orderRouter)
+
+//3 == FRONTEND SERVE ==
+const clientPath = path.join(__dirname, "../client/dist");
+
+//4 Serve static files
+app.use(express.static(clientPath));
+
+//5 React Router support
+app.get(/.*/, (req, res) => {
+    res.sendFile(path.join(clientPath, "index.html"));
+});
 
 
 
