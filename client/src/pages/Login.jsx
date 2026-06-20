@@ -93,7 +93,7 @@ export default function Login() {
 
           {/* Password */}
           <div  >
-            <label className="block text-gray-700 mb-1">Password</label>
+            <label className="block text-gray-700 mb-1">Password.</label>
             <div  className="flex bg-white items-center  border border-gray-300 rounded-lg ">
               <input
                 type={showPassword ? "text" : "password"}
