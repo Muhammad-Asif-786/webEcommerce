@@ -69,7 +69,7 @@ const AddAddress = ({close}) => {
                 </div>
 
                 <div className='grid gap-1'>
-                    <label htmlFor='city'>City :</label>
+                    <label htmlFor='city'>City, City :</label>
                     <input
                         type='text'
                         id='city' 
