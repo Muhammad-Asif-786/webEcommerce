@@ -74,7 +74,7 @@ export default function Login() {
   return (
         <div className=" mt-15 flex justify-center items-center py-8 bg-gray-100">
       <div className="bg-white shadow-lg rounded-2xl px-8 w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-center mt-3">Login || Login</h2>
+        <h2 className="text-2xl font-semibold text-center mt-3">Login</h2>
 
         <form className="space-y-2" onSubmit={handleSubmit} >
           {/* Email */}
