@@ -34,15 +34,32 @@ pipeline {
             }
         }
 
+        // stage('Run Server Container') {
+        //     steps {
+        //         sh """
+        //         docker stop ${SERVER_CONTAINER} || true
+        //         docker rm ${SERVER_CONTAINER} || true
+
+        //         docker run -d -p ${PORT}:${PORT} \
+        //         --name ${SERVER_CONTAINER} ${SERVER_IMAGE}
+        //         """
+        //     }
+        // }
         stage('Run Server Container') {
             steps {
-                sh """
-                docker stop ${SERVER_CONTAINER} || true
-                docker rm ${SERVER_CONTAINER} || true
+                withCredentials([file(credentialsId: 'web-ecommerce-env', variable: 'ENV_FILE')]) {
+                    sh """
+                    docker stop ${SERVER_CONTAINER} || true
+                    docker rm ${SERVER_CONTAINER} || true
 
-                docker run -d -p ${PORT}:${PORT} \
-                --name ${SERVER_CONTAINER} ${SERVER_IMAGE}
-                """
+                    docker run -d \
+                    --restart unless-stopped \
+                    -p ${PORT}:${PORT} \
+                    --env-file \$ENV_FILE \
+                    --name ${SERVER_CONTAINER} \
+                    ${SERVER_IMAGE}
+                    """
+                }
             }
         }
 
@@ -79,8 +96,8 @@ pipeline {
                     body: """
                     Deployment Successful!
 
-                    Backend: http://13.49.228.189:${PORT}
-                    Frontend: http://13.49.228.189
+                    Backend: http://51.20.55.172:${PORT}
+                    Frontend: http://51.20.55.172
 
                     Regards,
                     Jenkins CI/CD
