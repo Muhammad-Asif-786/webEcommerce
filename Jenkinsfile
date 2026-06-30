@@ -36,15 +36,33 @@ pipeline {
 
         stage('Run Server Container') {
             steps {
-                sh """
-                docker stop ${SERVER_CONTAINER} || true
-                docker rm ${SERVER_CONTAINER} || true
+                withCredentials([file(credentialsId: 'web-ecommerce-env', variable: 'ENV_FILE')]) {
+                    sh """
+                    docker stop ${SERVER_CONTAINER} || true
+                    docker rm ${SERVER_CONTAINER} || true
 
-                docker run -d -p ${PORT}:${PORT} \
-                --name ${SERVER_CONTAINER} ${SERVER_IMAGE}
-                """
+                    docker run -d \
+                    --restart unless-stopped \
+                    --env-file \$ENV_FILE \
+                    -p ${PORT}:${PORT} \
+                    --name ${SERVER_CONTAINER} \
+                    ${SERVER_IMAGE}
+                    """
+                }
             }
         }
+
+        // stage('Run Server Container') {
+        //     steps {
+        //         sh """
+        //         docker stop ${SERVER_CONTAINER} || true
+        //         docker rm ${SERVER_CONTAINER} || true
+
+        //         docker run -d -p ${PORT}:${PORT} \
+        //         --name ${SERVER_CONTAINER} ${SERVER_IMAGE}
+        //         """
+        //     }
+        // }
 
         /* =========================
            🔥 CLIENT BUILD
