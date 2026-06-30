@@ -52,18 +52,6 @@ pipeline {
             }
         }
 
-        // stage('Run Server Container') {
-        //     steps {
-        //         sh """
-        //         docker stop ${SERVER_CONTAINER} || true
-        //         docker rm ${SERVER_CONTAINER} || true
-
-        //         docker run -d -p ${PORT}:${PORT} \
-        //         --name ${SERVER_CONTAINER} ${SERVER_IMAGE}
-        //         """
-        //     }
-        // }
-
         /* =========================
            🔥 CLIENT BUILD
         ========================= */
@@ -97,8 +85,8 @@ pipeline {
                     body: """
                     Deployment Successful!
 
-                    Backend: http://51.20.55.172:${PORT}
-                    Frontend: http://51.20.55.172
+                    Backend: http://16.170.255.174:${PORT}
+                    Frontend: http://16.170.255.174
 
                     Regards,
                     Jenkins CI/CD
@@ -119,3 +107,4 @@ pipeline {
     }
 }
 
+// testing checking 

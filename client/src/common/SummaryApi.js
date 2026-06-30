@@ -1,4 +1,5 @@
-export const baseURL = import.meta.env.VITE_API_URL || "http://localhost:5050";
+export const baseURL = import.meta.env.VITE_API_URL || "http://16.170.255.174:5050";
+// export const baseURL = import.meta.env.VITE_API_URL || "http://51.20.55.172:5050";
 
 
 const SummaryApi = {
