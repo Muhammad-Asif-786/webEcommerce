@@ -1,4 +1,4 @@
-export const baseURL = import.meta.env.VITE_API_URL || "http://16.170.255.174:5050";
+export const baseURL = import.meta.env.VITE_API_URL || "http://13.49.244.147:5050";
 // export const baseURL = import.meta.env.VITE_API_URL || "http://51.20.55.172:5050";
 
 

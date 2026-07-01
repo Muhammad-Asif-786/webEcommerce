@@ -85,8 +85,8 @@ pipeline {
                     body: """
                     Deployment Successful!
 
-                    Backend: http://16.170.255.174:${PORT}
-                    Frontend: http://16.170.255.174
+                    Backend: http://13.49.244.147:${PORT}
+                    Frontend: http://13.49.244.147
 
                     Regards,
                     Jenkins CI/CD
