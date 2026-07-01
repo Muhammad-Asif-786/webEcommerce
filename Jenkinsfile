@@ -36,7 +36,7 @@ pipeline {
 
         stage('Run Server Container') {
             steps {
-                withCredentials([file(credentialsId: 'web-ecommerce-env', variable: 'ENV_FILE')]) {
+                withCredentials([file(credentialsId: 'webEcommerce', variable: 'ENV_FILE')]) {
                     sh """
                     docker stop ${SERVER_CONTAINER} || true
                     docker rm ${SERVER_CONTAINER} || true
