@@ -8,7 +8,7 @@ const ConfirmBox = ({ close, cancel, confirm, image, name }) => { // ✅ added i
       <div className="bg-white w-full max-w-lg p-4 rounded shadow-lg">
         
         <div className="flex justify-between items-center mb-1">
-          <h2 className="font-semibold text-lg">Confirm Delete</h2>
+          <h2 className="font-semibold text-lg">Confirm Delete.</h2>
           <button onClick={close}>
             <IoClose size={24} />
           </button>
